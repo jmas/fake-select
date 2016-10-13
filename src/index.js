@@ -109,7 +109,6 @@ export function updateSelectToFake (selector='select', scope=null) {
         let valuesEl = document.createElement('div');
         let queryEl = createQueryInput();
         el.className = FAKE_CLASS_NAME;
-        el.tabIndex = '-1';
         optionsEl.className = FAKE_OPTIONS_CLASS_NAME;
         valuesEl.className = FAKE_VALUES_CLASS_NAME;
         el.appendChild(valuesEl);
