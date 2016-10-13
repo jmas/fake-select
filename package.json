@@ -15,6 +15,7 @@
   "keywords": [
     "select"
   ],
+  "repository": "https://github.com/jmas/fake-select.git",
   "author": "Maslakov Alexander <jmas.ukraine@gmail.com>",
   "license": "ISC",
   "browserify": {
