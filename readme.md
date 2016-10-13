@@ -8,7 +8,7 @@ Features:
 * Listen `change` event and change Fake Select selection when original `<select>` was changed
 * Support `multiple` attribute (so multiple selection)
 
-Se warning section.
+See `Warning` section.
 
 ## Usage
 
