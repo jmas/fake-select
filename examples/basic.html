@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Basic</title>
+        <link href="../dist/fake-select.css" rel="stylesheet" type="text/css" />
+        <style>
+            body {
+                font-family: sans-serif;
+                color: #4A4A4A;
+            }
+        </style>
+    </head>
+    <body>
+
+    <p>As a multiple selector:</p>
+    <select name="items[]" placeholder="Please, select options&hellip;" multiple>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+        <option>Option 1</option>
+        <option selected>Option 2</option>
+        <option selected>Option 3</option>
+    </select>
+
+    <p>As single selector:</p>
+    <select name="item" placeholder="Please, select option&hellip;">
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option selected>Option 3</option>
+    </select>
+
+    <script src="../dist/fake-select-standalone.js"></script>
+    <script>
+        window.fakeSelect.updateSelectToFake();
+    </script>
+
+    </body>
+</html>

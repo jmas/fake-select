@@ -1,0 +1,108 @@
+$fake-select-focus-background: #f8f9fc;
+$fake-select-focus-border: #8c8c8c;
+$fake-select-background: white;
+$fake-select-border: #d0d0d0;
+$fake-select-active: #eee;
+
+.fake-select {
+  position: relative;
+  display: block;
+  border: 1px solid $fake-select-border;
+  background-color: $fake-select-background;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  min-width: 225px;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(50% - 3px);
+    right: 5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $fake-select-border;
+  }
+  &-source {
+    display: none;
+  }
+  &-values {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &-value {
+    margin-right: 2px;
+  }
+  &.focused,
+  &:focus {
+    border-color: $fake-select-focus-border;
+    background-color: $fake-select-focus-background;
+  }
+  &.multiple {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  &.multiple &-value {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: $fake-select-active;
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border: 1px solid $fake-select-border;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    overflow: hidden;
+  }
+  &-options {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: 100%;
+    display: none;
+    box-shadow: 0 2px 5px $fake-select-border;
+    background-color: white;
+    border-radius: 3px;
+    max-height: 300px;
+    overflow: auto;
+    z-index: 1;
+  }
+  &-option {
+    padding: 5px;
+    cursor: pointer;
+    &.selected {
+      background-color: $fake-select-active;
+    }
+  }
+  &-query {
+    position: relative;
+    border: none;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-size: 100%;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    width: 225px;
+  }
+  &:focus &-options,
+  &-query:focus + &-options {
+    display: block;
+  }
+  &-options:empty {
+    display: none;
+  }
+}

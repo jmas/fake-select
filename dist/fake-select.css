@@ -1,0 +1,87 @@
+.fake-select {
+  position: relative;
+  display: block;
+  border: 1px solid #d0d0d0;
+  background-color: white;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  min-width: 225px; }
+  .fake-select:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: calc(50% - 3px);
+    right: 5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #d0d0d0; }
+  .fake-select-source {
+    display: none; }
+  .fake-select-values {
+    display: inline-block;
+    vertical-align: middle; }
+  .fake-select-value {
+    margin-right: 2px; }
+  .fake-select.focused, .fake-select:focus {
+    border-color: #8c8c8c;
+    background-color: #f8f9fc; }
+  .fake-select.multiple {
+    padding-top: 4px;
+    padding-bottom: 4px; }
+  .fake-select.multiple .fake-select-value {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #eee;
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border: 1px solid #d0d0d0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    overflow: hidden; }
+  .fake-select-options {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: 100%;
+    display: none;
+    box-shadow: 0 2px 5px #d0d0d0;
+    background-color: white;
+    border-radius: 3px;
+    max-height: 300px;
+    overflow: auto;
+    z-index: 1; }
+  .fake-select-option {
+    padding: 5px;
+    cursor: pointer; }
+    .fake-select-option.selected {
+      background-color: #eee; }
+  .fake-select-query {
+    position: relative;
+    border: none;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-size: 100%;
+    background-color: transparent;
+    display: inline-block;
+    vertical-align: middle;
+    width: 225px; }
+  .fake-select:focus .fake-select-options,
+  .fake-select-query:focus + .fake-select-options {
+    display: block; }
+  .fake-select-options:empty {
+    display: none; }
