@@ -1,6 +1,6 @@
 // Constants
 const FAKE_CLASS_NAME = 'fake-select';
-const FAKE_TAG_NAME = 'div';
+const FAKE_TAG_NAME = 'label';
 const SOURCE_CLASS_NAME = 'fake-select-source';
 const FAKE_OPTION_CLASS_NAME = 'fake-select-option';
 const FAKE_OPTIONS_CLASS_NAME = 'fake-select-options';

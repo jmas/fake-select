@@ -7,7 +7,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.updateSelectToFake = updateSelectToFake;
 // Constants
 var FAKE_CLASS_NAME = 'fake-select';
-var FAKE_TAG_NAME = 'div';
+var FAKE_TAG_NAME = 'label';
 var SOURCE_CLASS_NAME = 'fake-select-source';
 var FAKE_OPTION_CLASS_NAME = 'fake-select-option';
 var FAKE_OPTIONS_CLASS_NAME = 'fake-select-options';
