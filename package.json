@@ -1,6 +1,6 @@
 {
   "name": "fake-select",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library that update standard browser select input to Fake Select.",
   "main": "src/index.js",
   "scripts": {
