@@ -10,7 +10,6 @@ const FAKE_OPTION_TAG_NAME = 'div';
 const FAKE_VALUES_CLASS_NAME = 'fake-select-values';
 const FAKE_VALUE_CLASS_NAME = 'fake-select-value';
 const QUERY_CLASS_NAME = 'fake-select-query';
-const SELECT_QUERY_DATA_ATTR = 'data-query';
 
 /**
  * Search for select elements in document and update it to Fake Selects.
@@ -151,6 +150,9 @@ export function updateSelectToFake (selector='select', scope=null) {
         if (isSelectMultiple) {
             optionEl.selected = !optionEl.selected;
         } else {
+            let queryEl = findQuery(fakeEl);
+            queryEl.value = '';
+
             selectEl.selectedIndex = selectedIndex;
         }
         triggerChange(selectEl);
@@ -182,10 +184,9 @@ export function updateSelectToFake (selector='select', scope=null) {
     function handleQueryKeyup (queryEl, fakeEl, selectEl, event) {
         let isSelectMultiple = selectEl.classList.contains(MULTIPLE_CLASS_NAME);
         let queryValue = queryEl.value;
-        if (!isSelectMultiple && queryValue && selectEl.selectedIndex) {
+        if (!isSelectMultiple && queryValue) {
             selectEl.selectedIndex = -1;
         }
-        selectEl.setAttribute(SELECT_QUERY_DATA_ATTR, queryValue);
         updateFakeWithSelect(fakeEl, selectEl);
     }
 
@@ -259,7 +260,7 @@ export function updateSelectToFake (selector='select', scope=null) {
         let queryEl = findQuery(fakeEl);
         let placeholder = selectEl.getAttribute('placeholder');
         let selectedOptions = [];
-        let queryValue = selectEl.getAttribute(SELECT_QUERY_DATA_ATTR) || null;
+        let queryValue = queryEl.value;
         let isSelectMultiple = selectEl.classList.contains(MULTIPLE_CLASS_NAME);
         clearChildren(fakeOptionsEl);
         for (let i=0, ln=selectEl.options.length; i<ln; i++) {

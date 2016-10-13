@@ -17,7 +17,6 @@ var FAKE_OPTION_TAG_NAME = 'div';
 var FAKE_VALUES_CLASS_NAME = 'fake-select-values';
 var FAKE_VALUE_CLASS_NAME = 'fake-select-value';
 var QUERY_CLASS_NAME = 'fake-select-query';
-var SELECT_QUERY_DATA_ATTR = 'data-query';
 
 /**
  * Search for select elements in document and update it to Fake Selects.
@@ -161,6 +160,9 @@ function updateSelectToFake() {
         if (isSelectMultiple) {
             optionEl.selected = !optionEl.selected;
         } else {
+            var queryEl = findQuery(fakeEl);
+            queryEl.value = '';
+
             selectEl.selectedIndex = selectedIndex;
         }
         triggerChange(selectEl);
@@ -192,10 +194,9 @@ function updateSelectToFake() {
     function handleQueryKeyup(queryEl, fakeEl, selectEl, event) {
         var isSelectMultiple = selectEl.classList.contains(MULTIPLE_CLASS_NAME);
         var queryValue = queryEl.value;
-        if (!isSelectMultiple && queryValue && selectEl.selectedIndex) {
+        if (!isSelectMultiple && queryValue) {
             selectEl.selectedIndex = -1;
         }
-        selectEl.setAttribute(SELECT_QUERY_DATA_ATTR, queryValue);
         updateFakeWithSelect(fakeEl, selectEl);
     }
 
@@ -273,7 +274,7 @@ function updateSelectToFake() {
         var queryEl = findQuery(fakeEl);
         var placeholder = selectEl.getAttribute('placeholder');
         var selectedOptions = [];
-        var queryValue = selectEl.getAttribute(SELECT_QUERY_DATA_ATTR) || null;
+        var queryValue = queryEl.value;
         var isSelectMultiple = selectEl.classList.contains(MULTIPLE_CLASS_NAME);
         clearChildren(fakeOptionsEl);
         for (var i = 0, ln = selectEl.options.length; i < ln; i++) {
