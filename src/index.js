@@ -148,13 +148,11 @@ export function updateSelectToFake (selector='select', scope=null) {
         event.preventDefault();
         event.stopPropagation();
         let isSelectMultiple = selectEl.classList.contains(MULTIPLE_CLASS_NAME);
-        let queryEl = findQuery(fakeEl);
         if (isSelectMultiple) {
             optionEl.selected = !optionEl.selected;
         } else {
             selectEl.selectedIndex = selectedIndex;
         }
-        queryEl.value = '';
         triggerChange(selectEl);
     }
 

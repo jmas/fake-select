@@ -158,13 +158,11 @@ function updateSelectToFake() {
         event.preventDefault();
         event.stopPropagation();
         var isSelectMultiple = selectEl.classList.contains(MULTIPLE_CLASS_NAME);
-        var queryEl = findQuery(fakeEl);
         if (isSelectMultiple) {
             optionEl.selected = !optionEl.selected;
         } else {
             selectEl.selectedIndex = selectedIndex;
         }
-        queryEl.value = '';
         triggerChange(selectEl);
     }
 
@@ -254,18 +252,14 @@ function updateSelectToFake() {
     }
 
     function handleFakeClick(fakeEl, selectEl, event) {
-        console.log('handleFakeClick');
         fakeEl.classList.add('focused');
     }
 
     function handleWindowClick(fakeEl, selectEl, event) {
-        console.log('handleWindowClick');
         fakeEl.classList.remove('focused');
     }
 
     function handleFakeOptionsClick(fakeEl, selectEl, event) {
-        console.log('handleFakeOptionsClick');
-        //event.stopPropagation();
         clearTimeout(removeFakeFocusTimeout);
     }
 
