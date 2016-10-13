@@ -80,8 +80,7 @@
     display: inline-block;
     vertical-align: middle;
     width: 225px; }
-  .fake-select:focus .fake-select-options,
-  .fake-select-query:focus + .fake-select-options {
+  .fake-select.focused .fake-select-options {
     display: block; }
   .fake-select-options:empty {
     display: none; }

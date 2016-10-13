@@ -1,6 +1,6 @@
 // Constants
 const FAKE_CLASS_NAME = 'fake-select';
-const FAKE_TAG_NAME = 'label';
+const FAKE_TAG_NAME = 'div';
 const SOURCE_CLASS_NAME = 'fake-select-source';
 const FAKE_OPTION_CLASS_NAME = 'fake-select-option';
 const FAKE_OPTIONS_CLASS_NAME = 'fake-select-options';
@@ -38,6 +38,7 @@ const SELECT_QUERY_DATA_ATTR = 'data-query';
  */
 export function updateSelectToFake (selector='select', scope=null) {
     scope = scope || document;
+    let removeFakeFocusTimeout = null;
 
     /**
      * @param {Element} newNode
@@ -164,9 +165,13 @@ export function updateSelectToFake (selector='select', scope=null) {
      */
     function handleSelectChange (fakeEl, selectEl, event) {
         let isSelectMultiple = selectEl.classList.contains(MULTIPLE_CLASS_NAME);
+        let queryEl = findQuery(fakeEl);
         updateFakeWithSelect(fakeEl, selectEl);
         if (!isSelectMultiple) {
-            fakeEl.blur();
+            queryEl.blur();
+            fakeEl.classList.remove('focused');
+        } else {
+            queryEl.focus();
         }
     }
 
@@ -231,7 +236,19 @@ export function updateSelectToFake (selector='select', scope=null) {
      * @param {Event} event
      */
     function handleQueryBlur (queryEl, fakeEl, selectEl, event) {
+        removeFakeFocusTimeout = setTimeout(() => fakeEl.classList.remove('focused'), 300);
+    }
+
+    function handleFakeClick (fakeEl, selectEl, event) {
+        fakeEl.classList.add('focused');
+    }
+
+    function handleWindowClick (fakeEl, selectEl, event) {
         fakeEl.classList.remove('focused');
+    }
+
+    function handleFakeOptionsClick (fakeEl, selectEl, event) {
+        clearTimeout(removeFakeFocusTimeout);
     }
 
     /**
@@ -294,6 +311,7 @@ export function updateSelectToFake (selector='select', scope=null) {
             if (!selectEl.classList.contains(SOURCE_CLASS_NAME)) {
                 let fakeEl = insertFakeSelectAfter(selectEl);
                 let queryEl = findQuery(fakeEl);
+                let fakeOptionsEl = findFakeOptions(fakeEl);
                 selectEl.classList.add(SOURCE_CLASS_NAME);
                 if (selectEl.getAttribute('multiple')!==null) {
                     selectEl.classList.add(MULTIPLE_CLASS_NAME);
@@ -307,6 +325,9 @@ export function updateSelectToFake (selector='select', scope=null) {
                 queryEl.addEventListener('keyup', handleQueryKeyup.bind(null, queryEl, fakeEl, selectEl), true);
                 queryEl.addEventListener('keydown', handleQueryKeydown.bind(null, queryEl, fakeEl, selectEl), true);
                 selectEl.addEventListener('change', handleSelectChange.bind(null, fakeEl, selectEl), true);
+                fakeEl.addEventListener('click', handleFakeClick.bind(null, fakeEl, selectEl), true);
+                fakeOptionsEl.addEventListener('click', handleFakeOptionsClick.bind(null, fakeEl, selectEl), true);
+                window.addEventListener('click', handleWindowClick.bind(null, fakeEl, selectEl), true);
             }
         }
     }

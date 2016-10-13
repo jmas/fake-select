@@ -98,10 +98,13 @@ $fake-select-active: #eee;
     vertical-align: middle;
     width: 225px;
   }
-  &:focus &-options,
-  &-query:focus + &-options {
+  &.focused &-options {
     display: block;
   }
+  //&:focus &-options,
+  //&-query:focus + &-options {
+  //  display: block;
+  //}
   &-options:empty {
     display: none;
   }
