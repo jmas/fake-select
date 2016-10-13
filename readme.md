@@ -4,8 +4,8 @@ Very simple library that update standard browser select input to Fake Select.
 
 Features:
 * Use standard `<select>` for init
-* Throw `change` event when update selection
-* Listen `change` event and changing selection when original `<select>` was changed
+* Throw `change` event when selection is updated by Fake Select
+* Listen `change` event and change Fake Select selection when original `<select>` was changed
 * Support `multiple` attribute (so multiple selection)
 
 Se warning section.
