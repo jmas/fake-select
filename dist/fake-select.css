@@ -12,7 +12,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  min-width: 225px; }
+  min-width: 225px;
+  transition: .3s; }
   .fake-select:before {
     content: '';
     display: block;
@@ -34,9 +35,6 @@
   .fake-select.focused, .fake-select:focus {
     border-color: #8c8c8c;
     background-color: #f8f9fc; }
-  .fake-select.multiple {
-    padding-top: 4px;
-    padding-bottom: 4px; }
   .fake-select.multiple .fake-select-value {
     display: inline-block;
     vertical-align: middle;
@@ -70,10 +68,10 @@
       background-color: #eee; }
   .fake-select-query {
     position: relative;
-    border: none;
+    border: 1px solid transparent;
     line-height: 1;
     padding: 0;
-    margin: 0;
+    margin: 1px 0;
     outline: none;
     font-size: 100%;
     background-color: transparent;

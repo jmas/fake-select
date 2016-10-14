@@ -19,6 +19,7 @@ $fake-select-active: #eee;
   -ms-user-select: none;
   user-select: none;
   min-width: 225px;
+  transition: .3s;
   &:before {
     content: '';
     display: block;
@@ -45,10 +46,6 @@ $fake-select-active: #eee;
   &:focus {
     border-color: $fake-select-focus-border;
     background-color: $fake-select-focus-background;
-  }
-  &.multiple {
-    padding-top: 4px;
-    padding-bottom: 4px;
   }
   &.multiple &-value {
     display: inline-block;
@@ -87,10 +84,10 @@ $fake-select-active: #eee;
   }
   &-query {
     position: relative;
-    border: none;
+    border: 1px solid transparent;
     line-height: 1;
     padding: 0;
-    margin: 0;
+    margin: 1px 0;
     outline: none;
     font-size: 100%;
     background-color: transparent;
@@ -101,10 +98,6 @@ $fake-select-active: #eee;
   &.focused &-options {
     display: block;
   }
-  //&:focus &-options,
-  //&-query:focus + &-options {
-  //  display: block;
-  //}
   &-options:empty {
     display: none;
   }
