@@ -39,11 +39,11 @@ import { updateSelectToFake } from 'fake-select';
 updateSelectToFake();
 
 // You can pass a specific selector to find specific selects
-// updateSelectToFake('.js-fake-select');
+updateSelectToFake('.js-fake-select');
 
 // You can scope a container where selector should be search
-// const containerEl = document.getElementById('container');
-// updateSelectToFake('.js-fake-select', containerEl);
+const containerEl = document.getElementById('container');
+updateSelectToFake('.js-fake-select', containerEl);
 ```
 
 Or old-style:
