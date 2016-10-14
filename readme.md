@@ -3,6 +3,8 @@
 Very simple library that update standard browser select input to Fake Select.
 
 Features:
+* Vanilla JS (no any framework is needed)
+* Lightweight (2 Kb CSS and 13 Kb JS code)
 * Use standard `<select>` for init
 * Throw `change` event when selection is updated by Fake Select
 * Listen `change` event and change Fake Select selection when original `<select>` was changed
