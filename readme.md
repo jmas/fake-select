@@ -8,6 +8,8 @@ Features:
 * Listen `change` event and change Fake Select selection when original `<select>` was changed
 * Support `multiple` attribute (so multiple selection)
 
+See [demo example](https://jmas.github.io/fake-select/examples/basic.html).
+
 See `Warning` section.
 
 ## Usage
